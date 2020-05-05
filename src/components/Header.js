@@ -26,7 +26,7 @@ class Header extends Component {
                             <a href="/" className="button title">
                                 <h1>benclark.dev</h1>
                             </a>
-                            <p className="intro">Hello! My name's Ben and I'm a web developer based in London.</p>
+                            <p className="intro">Hello! My name's Ben and I'm a web developer based in Sydney.</p>
                             <Navigation />
                         </div>
                     </div>

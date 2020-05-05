@@ -17,15 +17,16 @@ class App extends Component {
                     <div className="container">
 
                         <section id="about" className="row">
-                            <article className="col-12 col-sm-8 col-lg-9 col-xl-10">
-                                <p>Originally from Sydney, Australia, my previous roles at boutique agencies and contract work 
-                                    have given me lots of experience across the stack, but my main focus has always 
-                                    been the front-end. I enjoy puzzling out a design into working styles and fine 
+                            <article className="col-12 col-sm-8 col-lg-9 col-xl-9">
+                                <p>Just returned to Australia after working in London as a front-end/React developer for an 
+                                    event and hotel booking company. This and my earlier roles at boutique agencies 
+                                    have given me lots of experience across the stack, but my main focus is 
+                                    the front-end. I enjoy puzzling out a design into a working product and fine 
                                     tuning the user interactivity on top.</p>
                                 <p>Outside of coding I'm a massive tennis fan, a wannabe baker and have hiked up 
-                                    the tallest mountain in Australia twice! (which if you know it isn't much to brag about...)</p>
+                                    Mt. Kosciuszko twice! (which if you've done it isn't much to brag about...)</p>
                             </article>
-                            <article className="col-12 col-sm-4 col-lg-3 col-xl-2">
+                            <article className="col-12 col-sm-4 col-lg-3 col-xl-3">
                                 <Avatar yellow src="assets/avatar.png" />
                             </article>
                         </section>
@@ -38,10 +39,10 @@ class App extends Component {
                             <article className="col-12 col-md-4">
                                 <h3>Front-end</h3>
                                 <ul>
+                                    <li>React</li>
+                                    <li>Javascript (ES6)</li>
                                     <li>HTML5</li>
                                     <li>CSS3 / Sass</li>
-                                    <li>Javascript (ES6)</li>
-                                    <li>Angular / Ionic</li>
                                     <li>jQuery</li>
                                 </ul>
                             </article>
@@ -49,6 +50,8 @@ class App extends Component {
                             <article className="col-12 col-md-4">
                                 <h3>Back-end</h3>
                                 <ul>
+                                    <li>Node.js</li>
+                                    <li>MongoDB</li>
                                     <li>PHP</li>
                                     <li>SQL</li>
                                     <li>REST API</li>
@@ -59,7 +62,7 @@ class App extends Component {
                                 <h3>Other</h3>
                                 <ul>
                                     <li>WordPress (themes &amp; plugins)</li>
-                                    <li>Subversion (SVN) / Git</li>
+                                    <li>Git / Subversion (SVN)</li>
                                     <li>Sketch / Photoshop</li>
                                     <li>Documentation &amp; User Training</li>
                                     <li>JIRA / Help Desk</li>
@@ -69,6 +72,19 @@ class App extends Component {
                             <div className="col-12">
                                 <h2>Recent work</h2>
                             </div>
+
+                            <Website classes="col-12 col-md-6" 
+                                title="Editable Hotel Contracts (React)" 
+                                caption="An internal React project to help the company sales team create fast and consistent 
+                                    hotel booking contracts to send to clients. Each contract has a unique URL and can 
+                                    be edited by the client before they sign digitally. It also needed to be printable and lock 
+                                    after signing to prevent further changes. This demo is a simplified version of the full app and
+                                    uses a RESTful API written in Node.js and MongoDB database."
+                                src="assets/ec.png" 
+                                buttons={[
+                                    { url : "https://demo.benclark.dev", label: "Demo" },
+                                    { url : "https://github.com/bclarkau/editable-contracts", label: "Code" }
+                                ]} />
 
                             <Website classes="col-12 col-lg-6" 
                                 title="The Buzz - online newsletter platform" 
@@ -82,18 +98,6 @@ class App extends Component {
                                     { url : "https://www.thebuzz.net.au/", label : "Website" },
                                     { url : "https://demo.thebuzz.net.au/", label : "Demos" },
                                     { url : "https://www.thebuzz.net.au/docs", label : "Docs" },
-                                ]} />
-
-                            <Website classes="col-12 col-md-6" 
-                                title="Afloat" 
-                                caption="WordPress theme built from scratch using the CSS framework Tailwind. The   
-                                    homepage features an animated magazine layout alongside product carousels and forms 
-                                    that filter user-created classifieds listings. PHP and CSS was used to prefix specific 
-                                    headings with a maritime signal flag icon corresponding to the first letter in the string.
-                                    Delivered to client but not yet live."
-                                src="assets/afloat.jpg" 
-                                buttons={[
-                                    { url : "https://benclark.dev/demo/afloat", label: "Preview" }
                                 ]} />
 
                             <Website classes="col-12 col-md-6 col-lg-4" 
@@ -121,15 +125,14 @@ class App extends Component {
                                 ]} />
 
                             <Website classes="col-12 col-md-6 col-lg-4" 
-                                title="Newington College" 
-                                caption="A custom WordPress theme centred around a suite of customisable content blocks 
-                                    featuring images, carousels and various styles of text. Each block automatically 
-                                    generates a unique anchor link for the client to externally link to. The layout 
-                                    needed to be flexible enough to be used across the clients' large network of 
-                                    microsites and landing pages."
-                                src="assets/newington.jpg"
+                                title="Afloat Magazine" 
+                                caption="WordPress theme built from scratch using the CSS framework Tailwind. The   
+                                homepage features an animated magazine layout alongside product carousels and forms 
+                                that filter user-created classifieds listings. PHP and CSS was used to prefix specific 
+                                headings with a maritime signal flag icon corresponding to the first letter in the string."
+                                src="assets/afloat.jpg"
                                 buttons={[
-                                    { url : "https://www.newington.nsw.edu.au" }
+                                    { url : "https://www.afloat.com.au/" }
                                 ]} />
 
                         </section>
