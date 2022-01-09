@@ -1,7 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CopyPlugin = require("copy-webpack-plugin");
 
 // environment
 let isProduction = (process.env.NODE_ENV === 'production');
@@ -32,6 +31,16 @@ module.exports = {
             'css-loader',
             'sass-loader',
           ],
+        },
+        {
+          test: /\.ttf$/,
+          use: {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'fonts/'
+            }
+          }
         }
       ]
   },
@@ -42,14 +51,6 @@ module.exports = {
       }),
       new HtmlWebpackPlugin({
           template: "./src/index.html"
-      }),
-      new CopyPlugin({
-        patterns: [
-          { from: 'assets/*', to: '' },
-          { from: 'assets/favicon/*', to({ context, absoluteFilename }) {
-            return "[name][ext]";
-          } }
-        ]
       })
   ],
 };

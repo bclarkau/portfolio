@@ -1,25 +1,156 @@
-// libraries
-@import '../../node_modules/reset-css/sass/reset';
-@import '../../node_modules/bootstrap-4-grid/scss/grid.scss';
-@import url('https://fonts.googleapis.com/css?family=Kadwa:700');
-
-// variables 
+// global
+@import 'reset';
 @import 'variables';
+// @import 'cursor';
+@import 'content';
 
-// global styles 
 body {
-    background-color: $gray-lightest;
-    font-family: $font-base;
-    color: $gray-darkest;
-    scroll-behavior: smooth;
-
-    @include media-breakpoint-up(md) {
-        font-size: 1.2rem;
-    }
+	@extend .font-body;
+	padding: 50px 8vw;
+	background: $light;
+	color: $dark;
+	overflow-x: hidden;
+	// cursor: none; // using JS animated cursor
 }
 
-// components 
-@import 'typography';
-@import 'header';
-@import 'content';
-@import 'footer';
+.header {
+
+	.intro {
+		@extend .font-heading;
+		padding-top: 28vh;
+		font-size: 3.5rem;
+		line-height: 4.5rem;
+		text-align: center;
+
+		.button {
+			position: relative;
+			background: none;
+			border: none;
+			font-size: 2rem;
+
+			&:after {
+				content: '\02193';
+				position: absolute;
+				top: 100%;
+				left: 0;
+				right: 0;
+			}
+		}
+	}
+
+	#spiro {
+		position: fixed;
+		top: 0;
+		left: 0;
+		// width: 100vw;
+		// height: 100vh;
+		z-index: -1;
+	}
+}
+
+.main {
+	margin-top: 200px;
+}
+
+.row {
+	display: flex;
+	gap: 3vw;
+
+	&--one {
+		margin-top: 17vw;
+	
+		&-text {
+			width: 35%;
+		}
+	
+		&-img {
+			width: 65%;
+
+			video {
+				width: 100%;
+			}
+		}
+	}
+
+	&--two {
+		flex-direction: row-reverse;
+		margin-top: 1.5vw;
+	
+		&-text {
+			width: 50%;
+			text-align: right;
+		}
+	
+		&-img {
+			margin-top: 12vw;
+			width: 50%;
+		}
+	}
+
+	&--three {
+		justify-content: space-between;
+		margin-top: 1.5vw;
+	
+		&-text {
+			width: 65%;
+		}
+	
+		&-img {
+			width: 20%;
+		}
+	}
+	
+	&--four {
+		align-content: flex-end;
+		margin-top: 1.5vw;
+	
+		&-text {
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-end;
+			width: 65%;
+			text-align: right;
+
+			p:last-of-type {
+				margin-bottom: 0;
+			}
+		}
+	
+		&-img {
+			width: 55%;
+		}
+	}
+}
+
+.footer {
+	margin-top: 6vw;
+
+	&--contact {
+		display: flex;
+		justify-content: space-evenly;
+		gap: 1.5vw;
+		margin-bottom: 3vw;
+
+		a {
+			@extend .font-heading;
+			display: inline-block;
+			width: 100%;
+			padding: 2vw 2vw 4vw;
+			background: $light;
+			text-decoration: none;
+			color: $dark;
+			font-size: 3vw;
+			transition: all .2s ease-in-out;
+			cursor: none;
+
+			&:hover {
+				background: $dark;
+				color: $light;
+			}
+		}
+	}
+
+	&--copyright {
+		text-align: right;
+	}
+}

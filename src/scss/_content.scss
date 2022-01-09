@@ -1,50 +1,14 @@
-.content {
-    padding: 3rem 0;
-    line-height: 1.6rem;
+h2 {
+	font-weight: $font-semibold;
+	font-size: 2vw;
+	line-height: 2.2vw;
+	margin-bottom: 2vw;
+}
 
-    @include media-breakpoint-up(md) {
-        line-height: 2rem;
-    }
+p {
+	margin-bottom: 2vw;
+}
 
-    article {
-        margin-bottom: 3rem; 
-    }
-
-    p {
-        margin-bottom: 1rem;
-    }
-
-    .avatar {
-        margin: 0 auto;
-        width: 160px;
-        height: 160px; 
-        border-radius: 100%;
-        background-color: $primary;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-blend-mode: luminosity;
-        box-shadow: 0 0 5px rgba( $black, 0.2 );
-    }
-
-    .website {
-        img {
-            display: block;
-            box-shadow: 0 0 5px rgba( $black, 0.2 );
-            margin-bottom: 1rem;
-        }
-
-        .caption {
-            font-size: 1rem;
-            line-height: 1.5rem;
-        }
-
-        .tag {
-            display: inline-block;
-            margin-right: .5rem;
-            font-size: .8rem;
-            line-height: 1.5rem;
-            font-weight: 600;
-        }
-    }
+img {
+	max-width: 100%;
 }
