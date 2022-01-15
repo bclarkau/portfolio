@@ -11,39 +11,43 @@
 		<span>Hello</span>
 	</div> -->
 	<header class="header">
-		<section class="intro">
+		<section class="header--intro">
 			<p>Hello! My name's Ben<br> and I'm a frontend web<br> developer based in Sydney</p>
-			<button class="button">Recent work</button>
+			<a class="cta" href="#work">
+				<span class="cta--text">Recent work</span>
+				<img class="cta--arrow" src="/assets/arrow.svg" alt="" role="presentation" />
+			</a>
 		</section>
-		<canvas id="spiro"></canvas>
 	</header>
 
 	<main class="main">
 
-		<section class="project">
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius error animi labore magnam dolor in asperiores nisi maiores quia doloribus! Neque, distinctio rerum culpa dignissimos dolorem repellendus similique iusto laborum!</p>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius error animi labore magnam dolor in asperiores nisi maiores quia doloribus! Neque, distinctio rerum culpa dignissimos dolorem repellendus similique iusto laborum!</p>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius error animi labore magnam dolor in asperiores nisi maiores quia doloribus! Neque, distinctio rerum culpa dignissimos dolorem repellendus similique iusto laborum!</p>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius error animi labore magnam dolor in asperiores nisi maiores quia doloribus! Neque, distinctio rerum culpa dignissimos dolorem repellendus similique iusto laborum!</p>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius error animi labore magnam dolor in asperiores nisi maiores quia doloribus! Neque, distinctio rerum culpa dignissimos dolorem repellendus similique iusto laborum!</p>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius error animi labore magnam dolor in asperiores nisi maiores quia doloribus! Neque, distinctio rerum culpa dignissimos dolorem repellendus similique iusto laborum!</p>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius error animi labore magnam dolor in asperiores nisi maiores quia doloribus! Neque, distinctio rerum culpa dignissimos dolorem repellendus similique iusto laborum!</p>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius error animi labore magnam dolor in asperiores nisi maiores quia doloribus! Neque, distinctio rerum culpa dignissimos dolorem repellendus similique iusto laborum!</p>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius error animi labore magnam dolor in asperiores nisi maiores quia doloribus! Neque, distinctio rerum culpa dignissimos dolorem repellendus similique iusto laborum!</p>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius error animi labore magnam dolor in asperiores nisi maiores quia doloribus! Neque, distinctio rerum culpa dignissimos dolorem repellendus similique iusto laborum!</p>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius error animi labore magnam dolor in asperiores nisi maiores quia doloribus! Neque, distinctio rerum culpa dignissimos dolorem repellendus similique iusto laborum!</p>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius error animi labore magnam dolor in asperiores nisi maiores quia doloribus! Neque, distinctio rerum culpa dignissimos dolorem repellendus similique iusto laborum!</p>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius error animi labore magnam dolor in asperiores nisi maiores quia doloribus! Neque, distinctio rerum culpa dignissimos dolorem repellendus similique iusto laborum!</p>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius error animi labore magnam dolor in asperiores nisi maiores quia doloribus! Neque, distinctio rerum culpa dignissimos dolorem repellendus similique iusto laborum!</p>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius error animi labore magnam dolor in asperiores nisi maiores quia doloribus! Neque, distinctio rerum culpa dignissimos dolorem repellendus similique iusto laborum!</p>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius error animi labore magnam dolor in asperiores nisi maiores quia doloribus! Neque, distinctio rerum culpa dignissimos dolorem repellendus similique iusto laborum!</p>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius error animi labore magnam dolor in asperiores nisi maiores quia doloribus! Neque, distinctio rerum culpa dignissimos dolorem repellendus similique iusto laborum!</p>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius error animi labore magnam dolor in asperiores nisi maiores quia doloribus! Neque, distinctio rerum culpa dignissimos dolorem repellendus similique iusto laborum!</p>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius error animi labore magnam dolor in asperiores nisi maiores quia doloribus! Neque, distinctio rerum culpa dignissimos dolorem repellendus similique iusto laborum!</p>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius error animi labore magnam dolor in asperiores nisi maiores quia doloribus! Neque, distinctio rerum culpa dignissimos dolorem repellendus similique iusto laborum!</p>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius error animi labore magnam dolor in asperiores nisi maiores quia doloribus! Neque, distinctio rerum culpa dignissimos dolorem repellendus similique iusto laborum!</p>
+		<section id="work" class="project">
+			<div class="project--gallery">
+				<img src="/assets/pxmo1.png" alt="pxmo" />
+				<img src="/assets/pxmo2.png" alt="pxmo" />
+				<img src="/assets/pxmo3.png" alt="pxmo" />
+			</div>
+			<div class="project--info">
+				<div>
+					<h2 class="project--title">PXMO - Proposal builder</h2>
+					<ul class="project--tags">
+						<li>Landing page</li>
+						<li>NextJS</li>
+						<li>Strapi</li>
+					</ul>
+				</div>
+				<div class="project--links">
+					<a class="button" href="https://pxmo.com" target="_blank">Visit</a>
+				</div>
+			</div>
+			<div class="project--description">
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam odio consectetur recusandae sequi, magnam dolore impedit beatae nostrum quisquam praesentium, eligendi fuga eaque, reiciendis accusantium sed quasi at mollitia perspiciatis.</p>
+			</div>
 		</section>
 
 	</main>
+
+	<canvas id="spiro"></canvas>
 </body>
 </html>

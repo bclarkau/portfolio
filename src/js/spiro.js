@@ -12,6 +12,8 @@ const options = [
 	{ a: 89, b: 52, c1: 67, c2: 67 },
 	{ a: 93, b: 21, c1: 57, c2: 57 },
 	{ a: 54, b: 133, c1: 11, c2: 11 },
+	{ a: 78, b: 70, c1: 174, c2: 174 },
+	{ a: 177, b: 76, c1: 120, c2: 120 }
 ]
 
 // start drawing
@@ -20,6 +22,7 @@ draw(0, context, true)
 // draw a spirograph from options
 function draw(key, context, random = false) {
 	const params = random ? getRandomParams() : options[key]
+	console.log(params)
 	spirograph(params, 0.1, 0.1, context)
 }
 

@@ -27,11 +27,11 @@ $font-extrabold: 800;
 	transition: font-weight .45s ease-out;
 
 	&:hover {
-		font-weight: 999;
+		font-weight: 500;
 	}
 }
 
 .font-body {
-	font-family: 'Saira', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 	font-weight: $font-regular;
 }
