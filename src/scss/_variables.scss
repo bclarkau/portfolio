@@ -12,7 +12,8 @@
 // colours
 $light: #edeae4;
 $dark: #28282a;
-$accent: #fc4e00;
+$primary: #fc4e00;
+$secondary: darken($light, 20);
 
 $font-regular: 400;
 $font-semibold: 600;

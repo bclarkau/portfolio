@@ -17,11 +17,15 @@ img {
 	display: inline-block;
 	padding: 14px 40px;
 	border-radius: 99px;
-	background: $accent;
+	background: $primary;
 	text-shadow: initial;
 	color: #FFF;
 	text-decoration: none;
 	box-shadow: 0 5px 8px rgba($dark, 0.1);
 	transform: translateY(-1px);
 	font-weight: 500;
+
+	&--secondary {
+		background: $secondary;
+	}
 }
