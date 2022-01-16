@@ -9,21 +9,21 @@ canvas.height = window.innerHeight
 // preset spiropgraphs
 const options = [
 	{ a: 176, b: 78, c1: 128, c2: 128 },
-	{ a: 89, b: 52, c1: 67, c2: 67 },
-	{ a: 93, b: 21, c1: 57, c2: 57 },
-	{ a: 54, b: 133, c1: 11, c2: 11 },
+	{ a: 89, b: 152, c1: 67, c2: 67 },
+	{ a: 23, b: 105, c1: 127, c2: 127 },
+	{ a: 184, b: 113, c1: 45, c2: 45 },
 	{ a: 78, b: 70, c1: 174, c2: 174 },
 	{ a: 177, b: 76, c1: 120, c2: 120 },
 	{ a: 189, b: 111, c1: 7, c2: 7 }
 ]
 
 // start drawing
-draw(0, context, true)
+draw(Math.floor(Math.random() * options.length), context)
 
 // draw a spirograph from options
 function draw(key, context, random = false) {
 	const params = random ? getRandomParams() : options[key]
-	console.log(params)
+	// console.log(params)
 	spirograph(params, 0.1, 0.1, context)
 }
 
