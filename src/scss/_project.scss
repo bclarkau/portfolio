@@ -60,21 +60,28 @@
 			grid-template-rows: repeat(2, 1fr);
 		}
 
-		img:first-child {
-			object-fit: cover;
-			height: 100%;
-			grid-area: 1 / 1 / 1 / 3;
-			
-			@include breakpoint(md) {
-				grid-area: 1 / 1 / 3 / 2;
+		&-item {
+			display: flex;
+
+			&:first-child {
+				grid-area: 1 / 1 / 1 / 3;
+				
+				@include breakpoint(md) {
+					grid-area: 1 / 1 / 3 / 2;
+				}
 			}
+		}
+
+		img {
+			display: block;
+			object-fit: cover;
 		}
 
 		&-alt {
 			@include breakpoint(md) {
 				grid-template-columns: 1fr 2fr;
 	
-				img:first-child {
+				.project--gallery-item:first-child {
 					grid-area: 1 / 2 / 3 / 2;
 				}
 			}
