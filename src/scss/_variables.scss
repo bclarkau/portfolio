@@ -1,18 +1,34 @@
-// colours 
-$primary: #ffc907;
-$secondary: #2ec4b6;
-$tertiary: #e71d36;
+// dependencies
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap');
 
-$white: #ffffff;
-$gray-lightest: #fafaf8;
-$gray-lighter: #e7e6e4;
-$gray-light: #d3d2d0;
-$gray: #c0bfbe;
-$gray-dark: #989896;
-$gray-darker: #71706f;
-$gray-darkest: #4a4948;
-$black: #222120;
+@font-face {
+	font-family: 'Saira';
+	src: url('../fonts/Saira.ttf') format('truetype-variations');
+	font-weight: 125 950;
+	font-stretch: 75% 125%;
+	font-style: normal;
+}
 
-// fonts 
-$font-heading: 'Kadwa', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-$font-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+// colours
+$light: #edeae4;
+$dark: #28282a;
+$primary: #fc4e00;
+$secondary: darken($light, 20);
+
+$font-regular: 400;
+$font-semibold: 600;
+$font-extrabold: 800;
+
+// utilities
+.font-heading {
+	font-family: 'Saira', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+	font-weight: 300;
+	// font-weight: $font-extrabold;
+	// text-transform: uppercase;
+	transition: font-weight .45s ease-out;
+}
+
+.font-body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+	font-weight: $font-regular;
+}

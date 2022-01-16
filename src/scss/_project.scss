@@ -1,0 +1,205 @@
+.project {
+	margin-bottom: 80px;
+
+	@include breakpoint(md) {
+		margin-bottom: 160px;
+	}
+	
+	@include breakpoint(xl) {
+		margin-bottom: 220px;
+	}
+
+	&--single {
+
+	}
+
+	&--double {
+
+		&-column {
+			margin-bottom: 80px;
+		}
+
+		@include breakpoint(lg) {
+			display: flex;
+			gap: 40px;
+
+			&-column {
+				width: calc(50% - 20px); 
+				flex-shrink: 0;
+			}
+
+			&-column:last-child {
+				padding-top: 220px;
+			}	
+		}
+
+	}
+
+	&--list {
+
+		@include breakpoint(lg) {
+			display: grid;
+			grid-template-columns: 1fr 2fr;
+			gap: 40px;
+			margin-bottom: 100px;
+		}
+
+		@include breakpoint(xl) {
+			margin-bottom: 150px;
+		}
+	}
+
+	&--gallery {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 2fr 1fr;
+		gap: 20px;
+
+		@include breakpoint(md) {
+			grid-template-columns: 2fr 1fr;
+			grid-template-rows: repeat(2, 1fr);
+		}
+
+		img:first-child {
+			object-fit: cover;
+			height: 100%;
+			grid-area: 1 / 1 / 1 / 3;
+			
+			@include breakpoint(md) {
+				grid-area: 1 / 1 / 3 / 2;
+			}
+		}
+
+		&-alt {
+			@include breakpoint(md) {
+				grid-template-columns: 1fr 2fr;
+	
+				img:first-child {
+					grid-area: 1 / 2 / 3 / 2;
+				}
+			}
+		}
+
+	}
+
+	&--info {
+		padding: 20px;
+
+		@include breakpoint(lg) {
+			padding: 40px 20px;
+			
+			.project--double & {
+				padding-left: 20px;
+				padding-right: 20px;
+			}
+	
+			.project--list & {
+				padding: 0;
+			}
+		}
+
+		@include breakpoint(xl) {
+			padding: 60px 90px 30px;
+		}
+	}
+	
+	&--head {
+		
+		&:hover {
+			.project--head-title {
+				font-weight: 500;
+			}
+		}
+		
+		@include breakpoint(sm) {
+			display: flex;
+			justify-content: space-between;
+			gap: 40px;
+			align-items: flex-start;
+		}
+
+		.project--double & {
+			gap: 0; 
+		}
+
+		// 	@include breakpoint(lg) {
+		// 		flex-direction: column;
+		// 		gap: 20px;
+		// 	}
+
+		// 	@include breakpoint(xl) {
+		// 		flex-direction: row;
+		// 		gap: 40px;
+		// 	}
+		// }
+	
+		&-title {
+			@extend .font-heading;
+			margin: 0;
+			display: block;
+			font-size: 2rem;
+			line-height: 2rem;
+			
+			@include breakpoint(sm) {
+				font-size: 2.5rem;
+				line-height: 2.5rem;
+			}
+			
+			@include breakpoint(xl) {
+				font-size: 3.5rem;
+				line-height: 3.5rem;
+			}
+		}
+
+		&-links {
+			display: flex;
+			gap: 20px;
+
+			@include breakpoint(sm) {
+				flex-direction: column;
+			}
+
+			@include breakpoint(lg) {
+				flex-direction: row;
+			}
+		}
+	}
+
+	&--tags {
+		display: flex;
+		margin: 10px 0 30px;
+		gap: 16px;
+		color: lighten($dark, 30);
+		font-weight: 500;
+		font-size: 0.7rem;
+
+		@include breakpoint(sm) {
+			font-size: 0.875rem;
+		}
+
+		@include breakpoint(xl) {
+			gap: 30px;
+		}
+
+		li + li::before {
+			content: '\000B7';
+			position: relative;
+			right: 8px;
+
+			@include breakpoint(xl) {
+				right: 15px;
+			}
+		}
+	}
+
+	img {
+		width: 100%;
+		box-shadow: 0 5px 10px rgba($dark, 0.1);
+		border-radius: 10px;
+		
+		@include breakpoint(md) {
+			border-radius: 20px;
+		}
+	}
+
+}

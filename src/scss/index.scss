@@ -1,25 +1,152 @@
-// libraries
-@import '../../node_modules/reset-css/sass/reset';
-@import '../../node_modules/bootstrap-4-grid/scss/grid.scss';
-@import url('https://fonts.googleapis.com/css?family=Kadwa:700');
-
-// variables 
+// global
+@import 'reset';
 @import 'variables';
+@import 'mixins';
+// @import 'cursor';
+@import 'content';
+@import 'project';
 
-// global styles 
-body {
-    background-color: $gray-lightest;
-    font-family: $font-base;
-    color: $gray-darkest;
-    scroll-behavior: smooth;
-
-    @include media-breakpoint-up(md) {
-        font-size: 1.2rem;
-    }
+* {
+	box-sizing: border-box;
 }
 
-// components 
-@import 'typography';
-@import 'header';
-@import 'content';
-@import 'footer';
+html, 
+body {
+	scroll-behavior: smooth;
+}
+
+body {
+	@extend .font-body;
+	background: $light;
+	color: $dark;
+	overflow-x: hidden;
+	// cursor: none; // using JS animated cursor
+	text-shadow: 2px 2px 0 $light, -2px -2px 0 $light, 2px -2px $light, -2px 2px $light;
+	scroll-behavior: smooth;
+	font-size: 1rem;
+	line-height: 1.5rem;
+	
+	@include breakpoint(md) {
+		font-size: 1.2rem;
+		line-height: 1.5rem;
+	}
+
+	@include breakpoint(xl) {
+		font-size: 1.4rem;
+		line-height: 1.8rem;	
+	}
+}
+
+.header {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+	height: 100vh;
+
+	&--intro {
+		@extend .font-heading;
+		// margin-top: 50px;
+		text-align: center;
+		font-size: 1.8rem;
+		line-height: 2.6rem;
+		padding: 20px;
+
+		@include breakpoint(md) {
+			font-size: 3.5rem;
+			line-height: 4.5rem;
+			padding: 0;
+		}
+
+		h1 {
+			margin-bottom: 50px;
+		}
+	}
+
+	.cta {
+		display: flex;
+		justify-content: center;
+		align-items: flex-start;
+		margin: 0 auto;
+		text-decoration: none;
+
+		&--text {
+			@extend .font-body;
+			display: block;
+			line-height: initial;
+			color: $dark;
+			font-size: 1.5rem;
+
+			@include breakpoint(md) {
+				font-size: 2rem;
+			}
+		}
+
+		&--arrow {
+			display: inline-block;
+			width: 30px;
+			transform: translate(8px, 12px);
+			
+			@include breakpoint(md) {
+				width: 40px;
+				transform: translate(10px, 15px);
+			}
+		}
+	}
+}
+
+.main {
+	margin: 0 auto;
+
+	@include breakpoint(xs) {
+		padding: 0 20px;
+	}
+
+	@include breakpoint(sm) {
+		max-width: 480px;
+	}
+
+	@include breakpoint(md) {
+		max-width: 640px;
+	}
+
+	@include breakpoint(lg) {
+		max-width: 800px;
+	}
+
+	@include breakpoint(xl) {
+		max-width: 1200px;
+	}
+}
+
+// .menu {
+// 	position: fixed;
+// 	top: 30px;
+// 	right: 30px;
+// }
+
+#spiro {
+	position: fixed;
+	top: 0;
+	left: 0;
+	// width: 100vw;
+	// height: 100vh;
+	z-index: -1;
+}
+
+.footer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+	height: 100vh;
+	
+	&--links {
+
+		@include breakpoint(sm) {
+			display: flex;
+			justify-content: center;
+			gap: 30px;
+		}
+	}
+}

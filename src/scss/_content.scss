@@ -1,50 +1,56 @@
-.content {
-    padding: 3rem 0;
-    line-height: 1.6rem;
+h2 {
+	font-weight: $font-semibold;
+	font-size: 2vw;
+	line-height: 2.2vw;
+	margin-bottom: 2vw;
+}
 
-    @include media-breakpoint-up(md) {
-        line-height: 2rem;
-    }
+p {
+	margin-bottom: 2vw;
+}
 
-    article {
-        margin-bottom: 3rem; 
-    }
+img {
+	max-width: 100%;
+}
 
-    p {
-        margin-bottom: 1rem;
-    }
+.button {
+	display: inline-block;
+	border-radius: 99px;
+	background: $primary;
+	text-shadow: initial;
+	color: #FFF;
+	text-decoration: none;
+	box-shadow: 0 5px 8px rgba($dark, 0.1);
+	transform: translateY(-1px);
+	font-weight: 500;
+	padding: 10px 30px;
+	font-size: 1.25rem;
+	width: 100%;
+	text-align: center;
+	margin: 30px 0 20px;
+	transition: all .2s ease-out;
 
-    .avatar {
-        margin: 0 auto;
-        width: 160px;
-        height: 160px; 
-        border-radius: 100%;
-        background-color: $primary;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-blend-mode: luminosity;
-        box-shadow: 0 0 5px rgba( $black, 0.2 );
-    }
+	&:hover {
+		transform: translateY(-5px);
+		box-shadow: 0 5px 10px rgba($dark, 0.2);
+		background-color: darken($primary, 5);
+	}
 
-    .website {
-        img {
-            display: block;
-            box-shadow: 0 0 5px rgba( $black, 0.2 );
-            margin-bottom: 1rem;
-        }
+	@include breakpoint(sm) {
+		width: auto;
+		margin: 0;
+	}
 
-        .caption {
-            font-size: 1rem;
-            line-height: 1.5rem;
-        }
+	@include breakpoint(xl) {
+		padding: 14px 40px;
+		font-size: 1.35rem;
+	}
 
-        .tag {
-            display: inline-block;
-            margin-right: .5rem;
-            font-size: .8rem;
-            line-height: 1.5rem;
-            font-weight: 600;
-        }
-    }
+	&--secondary {
+		background: $secondary;
+
+		&:hover {
+			background-color: darken($secondary, 10);
+		}
+	}
 }

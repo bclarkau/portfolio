@@ -1,0 +1,49 @@
+#cursor {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	z-index: 10;
+	contain: layout style size;
+	pointer-events: none;
+	// mix-blend-mode: color-dodge;
+
+	span {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		z-index: 99;
+		opacity: 0;
+		text-align: center;
+		color: $light;
+		transition: opacity .2s ease-out;
+	}
+	
+	&:before {
+		content: "";
+		position: absolute;
+		top: -6vw;
+		left: -6vw;
+		display: block;
+		width: 12vw;
+		height: 12vw;
+		transform: scale(0.1);
+		background-color: $primary;
+		border-radius: 50%;
+		transition: transform .2s ease-in-out, 
+					background-color .2s ease-in-out;
+	}
+	
+	&.active {
+		// mix-blend-mode: normal;
+
+		span {
+			opacity: 1;
+		}
+		
+		&:before {
+			background-color: $primary;
+			transform: scale(1);
+		}
+	}
+}

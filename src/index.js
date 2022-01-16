@@ -1,9 +1,8 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import App from "./components/App";
+// custom animated cursor
+import './js/cursor'
+
+// animated spirograph
+import './js/spiro'
 
 // styles
-import './scss/index.scss';
-
-// render 
-ReactDOM.render(<App />, document.getElementById("app"));
+import './scss/index.scss'

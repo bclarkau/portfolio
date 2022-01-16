@@ -1,30 +1,210 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-5S8P7G3');</script>
-    <!-- End Google Tag Manager -->
-            
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Portfolio</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
-    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="manifest" href="assets/favicon/site.webmanifest">
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Ben Clark's Portfolio</title>
 </head>
 <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5S8P7G3"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-        
-    <div id="app"></div>
+	<!-- <div id="cursor">
+		<span>Hello</span>
+	</div> -->
+	<header class="header">
+		<section class="header--intro">
+			<h1>Hello! My name's Ben<br> and I'm a frontend web<br> developer based in Sydney</h1>
+			<a class="cta" href="#work">
+				<span class="cta--text">Recent work</span>
+				<img class="cta--arrow" src="/assets/arrow.svg" alt="" role="presentation" />
+			</a>
+		</section>
+	</header>
+
+	<main class="main">
+
+		<section id="work" class="project project--single">
+			<div class="project--gallery">
+				<img src="/assets/pxmo1.png" alt="pxmo" />
+				<img src="/assets/pxmo2.png" alt="pxmo" />
+				<img src="/assets/pxmo3.png" alt="pxmo" />
+			</div>
+			<div class="project--info">
+				<div class="project--head">
+					<h2 class="project--head-title">PXMO - Proposal builder</h2>
+					<div class="project--head-links">
+						<a class="button" href="https://pxmo.com" target="_blank">Visit</a>
+					</div>
+				</div>
+				<ul class="project--tags">
+					<li>Landing page</li>
+					<li>NextJS</li>
+					<li>Strapi</li>
+				</ul>
+				<div class="project--description">
+					<p>Marketing landing page for the pxmo app, an online proposal builder SaaS. Built in NextJS with a headless Strapi CMS, this website was designed to promote the features of the app and encourage sign ups. Subtle parallax animations are used to add visual interest alongside interactive elements and scroll triggered effects.</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="project project--double">
+
+			<div class="project--double-column">
+				<img src="/assets/ec.png" alt="Editable Hotel Contracts" />
+				<div class="project--info">
+					<div class="project--head">
+						<h2 class="project--head-title">Editable Hotel Contracts</h2>
+						<div class="project--head-links">
+							<a class="button" href="https://editable-contracts.vercel.app" target="_blank">Demo</a>
+						</div>
+					</div>
+					<ul class="project--tags">
+						<li>For the sales team</li>
+						<li>React</li>
+						<li>Express</li>
+					</ul>
+					<div class="project--description">
+						<p>An internal React project to help the company sales team create fast and consistent hotel booking contracts to send to clients. Each contract has a unique URL and can be edited by the client before they sign digitally. It also needed to be printable and lock after signing to prevent further changes. This demo is a simplified version of the full app and uses a RESTful API written in Node.js and MongoDB database.</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="project--double-column">
+				<img src="/assets/prph.png" alt="Product Placeholder" />
+				<div class="project--info">
+					<div class="project--head">
+						<h2 class="project--head-title">Product Placeholder</h2>
+						<div class="project--head-links">
+							<a class="button" href="https://productplaceholder.com" target="_blank">Visit</a>
+						</div>
+					</div>
+					<ul class="project--tags">
+						<li>For developers</li>
+						<li>Side project</li>
+						<li>eCommerce</li>
+					</ul>
+					<div class="project--description">
+						<p>Small side project for generating customisable placeholder product images with transparent backgrounds. Useful when developing an eCommerce project. Have had a need for something easy like this for years but never found exactly what I needed, so I made it myself.</p>
+					</div>
+				</div>
+			</div>
+
+		</section>
+
+		<section class="project project--single">
+			<div class="project--gallery project--gallery-alt">
+				<img src="/assets/buzz1.png" alt="The Buzz" />
+				<img src="/assets/buzz2.png" alt="The Buzz" />
+				<img src="/assets/buzz3.png" alt="The Buzz" />
+			</div>
+			<div class="project--info">
+				<div class="project--head">
+					<h2 class="project--head-title">The Buzz - school newsletter platform</h2>
+					<div class="project--head-links">
+						<a class="button" href="https://thebuzz.net.au" target="_blank">Demos</a>
+						<a class="button button--secondary" href="https://www.thebuzz.net.au/docs" target="_blank">Docs</a>
+					</div>
+				</div>
+				<ul class="project--tags">
+					<li>SaaS</li>
+					<li>WordPress</li>
+					<li>Documentation</li>
+				</ul>
+				<div class="project--description">
+					<p>A fully customisable theme and suite of plugins to turn WordPress into an online newsletter creation and distribution platform. Plugins to optionally add category sorting, calendars and email marketing integration (using the MailChimp and Campaign Monitor APIs) were also created. User training was provided and extensive documentation was written to further help customers.</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="project project--list">
+			<img src="/assets/seeing.png" alt="Seeing Machines" />
+			<div class="project--info">
+				<div class="project--head">
+					<h2 class="project--head-title">Seeing Machines</h2>
+					<div class="project--head-links">
+						<a class="button" href="https://www.seeingmachines.com" target="_blank">Visit</a>
+					</div>
+				</div>
+				<ul class="project--tags">
+					<li>Marketing</li>
+					<li>WordPress</li>
+					<li>Documentation</li>
+				</ul>
+				<div class="project--description">
+					<p>Bespoke WordPress theme with pre-styled content blocks allowing the client to create varied content with the same template. The hero image at the top of each content page includes a logo overlay with surrounding blur effect. The homepage features a live, animated statistics tracker pulled from real-world data.</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="project project--list">
+			<img src="/assets/hvgs.png" alt="Hunter Valley Grammar School" />
+			<div class="project--info">
+				<div class="project--head">
+					<h2 class="project--head-title">Hunter Valley Grammar School</h2>
+					<div class="project--head-links">
+						<a class="button" href="https://www.hvgs.nsw.edu.au" target="_blank">Visit</a>
+					</div>
+				</div>
+				<ul class="project--tags">
+					<li>For the school</li>
+					<li>WordPress</li>
+					<li>Documentation</li>
+				</ul>
+				<div class="project--description">
+					<p>Custom-built WordPress theme coded with a focus on automatically linking related content through categories and tags. A suite of components were also created to allow the client to embed interactive video sets, carousels and related content links on any page.</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="project project--list">
+			<img src="/assets/afloat.png" alt="Afloat Magazine" />
+			<div class="project--info">
+				<div class="project--head">
+					<h2 class="project--head-title">Afloat Magazine</h2>
+					<div class="project--head-links">
+						<a class="button" href="https://www.afloat.com.au" target="_blank">Visit</a>
+					</div>
+				</div>
+				<ul class="project--tags">
+					<li>Marketing</li>
+					<li>WordPress</li>
+					<li>Tailwind CSS</li>
+				</ul>
+				<div class="project--description">
+					<p>WordPress theme built from scratch using Tailwind CSS. The homepage features an animated magazine layout alongside product carousels and forms that filter user-created classifieds listings. Specific headings are prefixed with a maritime signal flag icon corresponding to the first letter in the string.</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="project project--list">
+			<img src="/assets/newington.png" alt="Newington College" />
+			<div class="project--info">
+				<div class="project--head">
+					<h2 class="project--head-title">Newington College</h2>
+					<div class="project--head-links">
+						<a class="button" href="https://www.newington.nsw.edu.au" target="_blank">Visit</a>
+					</div>
+				</div>
+				<ul class="project--tags">
+					<li>For the school</li>
+					<li>WordPress</li>
+					<li>User training</li>
+				</ul>
+				<div class="project--description">
+					<p>User-customisable WordPress theme shared across the main marketing website and ten microsites. Each page is made from an array of pre-styled sections with a focus on large imagery and highly structured content. This website was nominated for Best Education Website at the 2017 AMY Awards.</p>
+				</div>
+			</div>
+		</section>
+
+	</main>
+
+	<footer class="footer">
+		<ul class="footer--links">
+			<li><a class="footer--links-item button button--secondary" href="mailto:ben@benclark.dev" target="_blank" title="Email">Email</a></li>
+			<li><a class="footer--links-item button button--secondary" href="https://www.linkedin.com/in/benclark001/" target="_blank" title="LinkedIn">LinkedIn</a></li>
+			<li><a class="footer--links-item button button--secondary" href="https://github.com/bclarkau/" target="_blank" title="GitHub">GitHub</a></li>
+		</ul>
+	</footer>
+
+	<canvas id="spiro"></canvas>
 </body>
 </html>
