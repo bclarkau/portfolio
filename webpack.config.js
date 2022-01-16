@@ -58,7 +58,7 @@ module.exports = {
       }),
       new CopyPlugin({
         patterns: [
-          { from: 'src/img/*', to: '' },
+          { from: 'src/img/*', to: path.resolve(__dirname, './dist/img/[name][ext]') },
           { from: 'src/img/favicon/*', to({ context, absoluteFilename }) {
             return "[name][ext]";
           } }
