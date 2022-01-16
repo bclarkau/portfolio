@@ -1,6 +1,7 @@
 // global
 @import 'reset';
 @import 'variables';
+@import 'mixins';
 // @import 'cursor';
 @import 'content';
 @import 'project';
@@ -36,7 +37,7 @@ body {
 		line-height: 4.5rem;
 		text-align: center;
 
-		p {
+		h1 {
 			margin-bottom: 50px;
 		}
 	}
@@ -65,8 +66,20 @@ body {
 }
 
 .main {
-	padding: 50px 8vw;
+	max-width: 800px;
+	margin: 0 auto;
+
+	@include breakpoint(xl) {
+		max-width: 1200px;
+		padding: 50px 8vw;
+	}
 }
+
+// .menu {
+// 	position: fixed;
+// 	top: 30px;
+// 	right: 30px;
+// }
 
 #spiro {
 	position: fixed;
@@ -77,105 +90,30 @@ body {
 	z-index: -1;
 }
 
-// .row {
-// 	display: flex;
-// 	gap: 3vw;
-
-// 	&--one {
-// 		margin-top: 17vw;
-	
-// 		&-text {
-// 			width: 35%;
-// 		}
-	
-// 		&-img {
-// 			width: 65%;
-
-// 			video {
-// 				width: 100%;
-// 			}
-// 		}
-// 	}
-
-// 	&--two {
-// 		flex-direction: row-reverse;
-// 		margin-top: 1.5vw;
-	
-// 		&-text {
-// 			width: 50%;
-// 			text-align: right;
-// 		}
-	
-// 		&-img {
-// 			margin-top: 12vw;
-// 			width: 50%;
-// 		}
-// 	}
-
-// 	&--three {
-// 		justify-content: space-between;
-// 		margin-top: 1.5vw;
-	
-// 		&-text {
-// 			width: 65%;
-// 		}
-	
-// 		&-img {
-// 			width: 20%;
-// 		}
-// 	}
-	
-// 	&--four {
-// 		align-content: flex-end;
-// 		margin-top: 1.5vw;
-	
-// 		&-text {
-// 			display: flex;
-// 			flex-direction: column;
-// 			justify-content: flex-end;
-// 			width: 65%;
-// 			text-align: right;
-
-// 			p:last-of-type {
-// 				margin-bottom: 0;
-// 			}
-// 		}
-	
-// 		&-img {
-// 			width: 55%;
-// 		}
-// 	}
-// }
-
 .footer {
-	margin-top: 6vw;
-
-	&--contact {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+	height: 100vh;
+	
+	&--links {
 		display: flex;
-		justify-content: space-evenly;
-		gap: 1.5vw;
-		margin-bottom: 3vw;
+		justify-content: center;
+		gap: 30px;
 
-		a {
-			@extend .font-heading;
-			display: inline-block;
-			width: 100%;
-			padding: 2vw 2vw 4vw;
-			background: $light;
-			text-decoration: none;
-			color: $dark;
-			font-size: 3vw;
-			transition: all .2s ease-in-out;
-			cursor: none;
+		&-item {
+			&.email {
+				
+			}
 
-			&:hover {
-				background: $dark;
-				color: $light;
+			&.linkedin {
+
+			}
+			
+			&.github {
+
 			}
 		}
-	}
-
-	&--copyright {
-		text-align: right;
 	}
 }
