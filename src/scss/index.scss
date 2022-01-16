@@ -6,6 +6,10 @@
 @import 'content';
 @import 'project';
 
+* {
+	box-sizing: border-box;
+}
+
 html, 
 body {
 	scroll-behavior: smooth;
@@ -19,8 +23,18 @@ body {
 	// cursor: none; // using JS animated cursor
 	text-shadow: 2px 2px 0 $light, -2px -2px 0 $light, 2px -2px $light, -2px 2px $light;
 	scroll-behavior: smooth;
-	font-size: 1.4rem;
-	line-height: 1.8rem;
+	font-size: 1rem;
+	line-height: 1.5rem;
+	
+	@include breakpoint(md) {
+		font-size: 1.2rem;
+		line-height: 1.5rem;
+	}
+
+	@include breakpoint(xl) {
+		font-size: 1.4rem;
+		line-height: 1.8rem;	
+	}
 }
 
 .header {
@@ -32,10 +46,17 @@ body {
 
 	&--intro {
 		@extend .font-heading;
-		margin-top: 5vh;
-		font-size: 3.5rem;
-		line-height: 4.5rem;
+		// margin-top: 50px;
 		text-align: center;
+		font-size: 1.8rem;
+		line-height: 2.6rem;
+		padding: 20px;
+
+		@include breakpoint(md) {
+			font-size: 3.5rem;
+			line-height: 4.5rem;
+			padding: 0;
+		}
 
 		h1 {
 			margin-bottom: 50px;
@@ -52,26 +73,49 @@ body {
 		&--text {
 			@extend .font-body;
 			display: block;
-			font-size: 2rem;
 			line-height: initial;
 			color: $dark;
+			font-size: 1.5rem;
+
+			@include breakpoint(md) {
+				font-size: 2rem;
+			}
 		}
 
 		&--arrow {
 			display: inline-block;
-			width: 40px;
-			transform: translate(10px, 15px);
+			width: 30px;
+			transform: translate(8px, 12px);
+			
+			@include breakpoint(md) {
+				width: 40px;
+				transform: translate(10px, 15px);
+			}
 		}
 	}
 }
 
 .main {
-	max-width: 800px;
 	margin: 0 auto;
+
+	@include breakpoint(xs) {
+		padding: 0 20px;
+	}
+
+	@include breakpoint(sm) {
+		max-width: 480px;
+	}
+
+	@include breakpoint(md) {
+		max-width: 640px;
+	}
+
+	@include breakpoint(lg) {
+		max-width: 800px;
+	}
 
 	@include breakpoint(xl) {
 		max-width: 1200px;
-		padding: 50px 8vw;
 	}
 }
 
@@ -98,22 +142,11 @@ body {
 	height: 100vh;
 	
 	&--links {
-		display: flex;
-		justify-content: center;
-		gap: 30px;
 
-		&-item {
-			&.email {
-				
-			}
-
-			&.linkedin {
-
-			}
-			
-			&.github {
-
-			}
+		@include breakpoint(sm) {
+			display: flex;
+			justify-content: center;
+			gap: 30px;
 		}
 	}
 }
