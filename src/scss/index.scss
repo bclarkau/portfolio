@@ -2,7 +2,6 @@
 @import 'reset';
 @import 'variables';
 @import 'mixins';
-// @import 'cursor';
 @import 'content';
 @import 'project';
 
@@ -20,7 +19,6 @@ body {
 	background: $light;
 	color: $dark;
 	overflow-x: hidden;
-	// cursor: none; // using JS animated cursor
 	text-shadow: 2px 2px 0 $light, -2px -2px 0 $light, 2px -2px $light, -2px 2px $light;
 	scroll-behavior: smooth;
 	font-size: 1rem;
@@ -119,18 +117,10 @@ body {
 	}
 }
 
-// .menu {
-// 	position: fixed;
-// 	top: 30px;
-// 	right: 30px;
-// }
-
 #spiro {
 	position: fixed;
 	top: 0;
 	left: 0;
-	// width: 100vw;
-	// height: 100vh;
 	z-index: -1;
 }
 
