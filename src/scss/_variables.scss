@@ -22,14 +22,10 @@ $font-extrabold: 800;
 // utilities
 .font-heading {
 	font-family: 'Saira', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-	font-weight: 200;
+	font-weight: 300;
 	// font-weight: $font-extrabold;
 	// text-transform: uppercase;
 	transition: font-weight .45s ease-out;
-
-	&:hover {
-		font-weight: 500;
-	}
 }
 
 .font-body {

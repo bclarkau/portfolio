@@ -98,12 +98,18 @@
 			}
 		}
 
-		@include breakpoint(md) {
-			padding: 60px 40px 30px;
+		@include breakpoint(xl) {
+			padding: 60px 90px 30px;
 		}
 	}
 	
 	&--head {
+		
+		&:hover {
+			.project--head-title {
+				font-weight: 500;
+			}
+		}
 		
 		@include breakpoint(sm) {
 			display: flex;
