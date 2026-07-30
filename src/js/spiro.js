@@ -2,6 +2,16 @@ var canvas = document.getElementById('spiro');
 var context = canvas.getContext("2d");
 var ident = 0;
 
+const activeTheme = 'electric-coral-teal';
+const spiroStrokeByTheme = {
+	'sunset-neon': '#ff7a59',
+	'ocean-glass': '#38bdf8',
+	'mint-citrus': '#34d399',
+	'electric-coral-teal': '#ff7a8a',
+	'golden-hour': '#fb923c',
+	'aurora-pop': '#22d3ee'
+};
+
 // resize canvas
 canvas.width = window.innerWidth
 canvas.height = window.innerHeight
@@ -55,7 +65,7 @@ function spirograph(params, tRatio, resolution, context) {
 	var myIdent = ++ident;
 	context.lineCap = 'round'
 	context.lineWidth = 2
-	context.strokeStyle = 'white'
+	context.strokeStyle = spiroStrokeByTheme[activeTheme] || '#ffffff'
 
 	const step = () => {
 		if (ident != myIdent) return;

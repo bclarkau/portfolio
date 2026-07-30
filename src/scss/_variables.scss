@@ -12,10 +12,62 @@
 }
 
 // colours
-$light: #edeae4;
-$dark: #28282a;
-$primary: #fc4e00;
-$secondary: color.adjust($light, $lightness: -20%);
+$active-theme: 'electric-coral-teal';
+
+// Theme options:
+// 'sunset-neon'
+// 'ocean-glass'
+// 'mint-citrus'
+// 'electric-coral-teal'
+// 'golden-hour'
+// 'aurora-pop'
+
+$light: #fff8f5;
+$dark: #202225;
+$primary: #ff5d73;
+$secondary: #2ec4b6;
+
+@if $active-theme == 'sunset-neon' {
+	$light: #fff6ed;
+	$dark: #1f2430;
+	$primary: #ff5a36;
+	$secondary: #ffb07a;
+}
+
+@if $active-theme == 'ocean-glass' {
+	$light: #f2fbff;
+	$dark: #1d2a38;
+	$primary: #0ea5e9;
+	$secondary: #7dd3fc;
+}
+
+@if $active-theme == 'mint-citrus' {
+	$light: #f5fff7;
+	$dark: #1f2a22;
+	$primary: #22c55e;
+	$secondary: #a7f3d0;
+}
+
+@if $active-theme == 'electric-coral-teal' {
+	$light: #fff8f5;
+	$dark: #202225;
+	$primary: #ff5d73;
+	$secondary: #2ec4b6;
+}
+
+@if $active-theme == 'golden-hour' {
+	$light: #fff4e6;
+	$dark: #2a1f16;
+	$primary: #f97316;
+	$secondary: #fdba74;
+}
+
+@if $active-theme == 'aurora-pop' {
+	$light: #f6f7ff;
+	$dark: #1e1b4b;
+	$primary: #06b6d4;
+	$secondary: #a78bfa;
+}
 
 $font-regular: 400;
 $font-semibold: 600;
