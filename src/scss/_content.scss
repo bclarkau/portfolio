@@ -20,11 +20,11 @@ img {
 .button {
 	display: inline-block;
 	border-radius: 99px;
-	background: $primary;
+	background: var(--primary);
 	text-shadow: initial;
 	color: #FFF;
 	text-decoration: none;
-	box-shadow: 0 5px 8px rgba($dark, 0.1);
+	box-shadow: 0 5px 8px rgba(var(--dark-rgb), 0.1);
 	transform: translateY(-1px);
 	font-weight: 500;
 	padding: 10px 30px;
@@ -36,8 +36,8 @@ img {
 
 	&:hover {
 		transform: translateY(-5px);
-		box-shadow: 0 5px 10px rgba($dark, 0.2);
-		background-color: color.adjust($primary, $lightness: -5%);
+		box-shadow: 0 5px 10px rgba(var(--dark-rgb), 0.2);
+		background-color: var(--primary-strong);
 	}
 
 	@include breakpoint(sm) {
@@ -51,10 +51,10 @@ img {
 	}
 
 	&--secondary {
-		background: $secondary;
+		background: var(--secondary);
 
 		&:hover {
-			background-color: color.adjust($secondary, $lightness: -10%);
+			background-color: var(--secondary-strong);
 		}
 	}
 }

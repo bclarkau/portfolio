@@ -180,7 +180,7 @@
 		display: flex;
 		margin: 10px 0 30px;
 		gap: 16px;
-		color: color.adjust($dark, $lightness: 30%);
+		color: var(--muted);
 		font-weight: 500;
 		font-size: 0.7rem;
 
@@ -205,7 +205,7 @@
 
 	img {
 		width: 100%;
-		box-shadow: 0 5px 10px rgba($dark, 0.1);
+		box-shadow: 0 5px 10px rgba(var(--dark-rgb), 0.1);
 		border-radius: 10px;
 		
 		@include breakpoint(md) {

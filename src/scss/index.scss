@@ -16,10 +16,10 @@ body {
 
 body {
 	@extend .font-body;
-	background: $light;
-	color: $dark;
+	background: var(--light);
+	color: var(--dark);
 	overflow-x: hidden;
-	text-shadow: 2px 2px 0 $light, -2px -2px 0 $light, 2px -2px $light, -2px 2px $light;
+	text-shadow: 2px 2px 0 var(--light), -2px -2px 0 var(--light), 2px -2px var(--light), -2px 2px var(--light);
 	scroll-behavior: smooth;
 	font-size: 1rem;
 	line-height: 1.5rem;
@@ -72,7 +72,7 @@ body {
 			@extend .font-body;
 			display: block;
 			line-height: initial;
-			color: $dark;
+			color: var(--dark);
 			font-size: 1.5rem;
 
 			@include breakpoint(md) {
