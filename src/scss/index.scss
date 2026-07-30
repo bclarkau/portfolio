@@ -1,9 +1,9 @@
 // global
-@import 'reset';
-@import 'variables';
-@import 'mixins';
-@import 'content';
-@import 'project';
+@use 'reset';
+@use 'variables' as *;
+@use 'mixins' as *;
+@use 'content';
+@use 'project';
 
 * {
 	box-sizing: border-box;
@@ -38,9 +38,9 @@ body {
 .header {
 	display: flex;
 	justify-content: center;
-	align-items: center;
+	align-items: flex-end;
 	width: 100vw;
-	height: 100vh;
+	height: 50vh;
 
 	&--intro {
 		@extend .font-heading;
@@ -127,9 +127,9 @@ body {
 .footer {
 	display: flex;
 	justify-content: center;
-	align-items: center;
+	align-items: top;
 	width: 100vw;
-	height: 100vh;
+	height: 50vh;
 	
 	&--links {
 

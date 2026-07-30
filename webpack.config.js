@@ -38,12 +38,9 @@ module.exports = {
           exclude: [
             path.resolve(__dirname, './node_modules'),
           ],
-          use: {
-            loader: 'file-loader',
-            options: {
-              name: '[name].[ext]',
-              outputPath: 'fonts',
-            },
+          type: 'asset/resource',
+          generator: {
+            filename: 'fonts/[name][ext]',
           },
         },
       ]

@@ -1,3 +1,7 @@
+@use 'sass:color';
+@use 'variables' as *;
+@use 'mixins' as *;
+
 .project {
 	margin-bottom: 80px;
 
@@ -176,7 +180,7 @@
 		display: flex;
 		margin: 10px 0 30px;
 		gap: 16px;
-		color: lighten($dark, 30);
+		color: color.adjust($dark, $lightness: 30%);
 		font-weight: 500;
 		font-size: 0.7rem;
 

@@ -1,3 +1,7 @@
+@use 'sass:color';
+@use 'variables' as *;
+@use 'mixins' as *;
+
 h2 {
 	font-weight: $font-semibold;
 	font-size: 2vw;
@@ -33,7 +37,7 @@ img {
 	&:hover {
 		transform: translateY(-5px);
 		box-shadow: 0 5px 10px rgba($dark, 0.2);
-		background-color: darken($primary, 5);
+		background-color: color.adjust($primary, $lightness: -5%);
 	}
 
 	@include breakpoint(sm) {
@@ -50,7 +54,7 @@ img {
 		background: $secondary;
 
 		&:hover {
-			background-color: darken($secondary, 10);
+			background-color: color.adjust($secondary, $lightness: -10%);
 		}
 	}
 }
