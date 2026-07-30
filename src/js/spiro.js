@@ -7,6 +7,64 @@ const normalizeHue = (value) => ((value % 360) + 360) % 360;
 const hsl = (h, s, l) => `hsl(${normalizeHue(h)} ${s}% ${l}%)`;
 const hueDistance = (a, b) => Math.abs((((a - b) % 360) + 540) % 360 - 180);
 const MIN_PRIMARY_SPIRO_HUE_DISTANCE = 160;
+const MIN_SPIRO_BG_CONTRAST = 4.5;
+const MIN_SPIRO_SAT = 86;
+const MIN_SPIRO_LIGHTNESS = 40;
+const MAX_SPIRO_LIGHTNESS = 60;
+
+function avoidLowVisibilityHue(hue) {
+	const normalized = normalizeHue(hue);
+	return normalized >= 35 && normalized <= 85 ? normalizeHue(normalized + 90) : normalized;
+}
+
+function hslToRgb(h, s, l) {
+	const hue = normalizeHue(h) / 360;
+	const sat = s / 100;
+	const light = l / 100;
+
+	if (sat === 0) {
+		const gray = Math.round(light * 255);
+		return [gray, gray, gray];
+	}
+
+	const hueToRgb = (p, q, t) => {
+		let temp = t;
+		if (temp < 0) temp += 1;
+		if (temp > 1) temp -= 1;
+		if (temp < 1 / 6) return p + (q - p) * 6 * temp;
+		if (temp < 1 / 2) return q;
+		if (temp < 2 / 3) return p + (q - p) * (2 / 3 - temp) * 6;
+		return p;
+	};
+
+	const q = light < 0.5 ? light * (1 + sat) : light + sat - light * sat;
+	const p = 2 * light - q;
+	return [
+		Math.round(hueToRgb(p, q, hue + 1 / 3) * 255),
+		Math.round(hueToRgb(p, q, hue) * 255),
+		Math.round(hueToRgb(p, q, hue - 1 / 3) * 255)
+	];
+}
+
+function relativeLuminance([r, g, b]) {
+	const toLinear = (channel) => {
+		const normalized = channel / 255;
+		return normalized <= 0.03928 ? normalized / 12.92 : Math.pow((normalized + 0.055) / 1.055, 2.4);
+	};
+
+	const rl = toLinear(r);
+	const gl = toLinear(g);
+	const bl = toLinear(b);
+	return 0.2126 * rl + 0.7152 * gl + 0.0722 * bl;
+}
+
+function contrastRatio(rgbA, rgbB) {
+	const l1 = relativeLuminance(rgbA);
+	const l2 = relativeLuminance(rgbB);
+	const lighter = Math.max(l1, l2);
+	const darker = Math.min(l1, l2);
+	return (lighter + 0.05) / (darker + 0.05);
+}
 
 function paletteFromWheel() {
 	const baseHue = randomInt(0, 359);
@@ -40,8 +98,32 @@ function paletteFromWheel() {
 	if (hueDistance(spiroHue, primaryHue) < MIN_PRIMARY_SPIRO_HUE_DISTANCE) {
 		spiroHue = normalizeHue(primaryHue + 180);
 	}
-	const spiroSat = randomInt(78, 92);
-	const spiroLightness = randomInt(62, 76);
+	spiroHue = avoidLowVisibilityHue(spiroHue);
+	const backgroundRgb = hslToRgb(lightHue, lightSat, lightLightness);
+	let spiroSat = randomInt(MIN_SPIRO_SAT, 98);
+	let spiroLightness = randomInt(MIN_SPIRO_LIGHTNESS, MAX_SPIRO_LIGHTNESS);
+	let spiroRgb = hslToRgb(spiroHue, spiroSat, spiroLightness);
+	let spiroContrast = contrastRatio(spiroRgb, backgroundRgb);
+	let attempts = 0;
+
+	while (spiroContrast < MIN_SPIRO_BG_CONTRAST && attempts < 12) {
+		spiroLightness = Math.max(MIN_SPIRO_LIGHTNESS, spiroLightness - 2);
+		spiroSat = Math.min(98, spiroSat + 1);
+		if (spiroLightness === MIN_SPIRO_LIGHTNESS) {
+			spiroHue = normalizeHue(spiroHue + 25);
+		}
+		spiroRgb = hslToRgb(spiroHue, spiroSat, spiroLightness);
+		spiroContrast = contrastRatio(spiroRgb, backgroundRgb);
+		attempts += 1;
+	}
+
+	if (spiroContrast < MIN_SPIRO_BG_CONTRAST) {
+		spiroHue = avoidLowVisibilityHue(primaryHue + 200);
+		spiroSat = 98;
+		spiroLightness = 44;
+	}
+
+	const darkRgbChannels = hslToRgb(darkHue, darkSat, darkLightness).join(', ');
 
 	return {
 		light: hsl(lightHue, lightSat, lightLightness),
@@ -52,45 +134,12 @@ function paletteFromWheel() {
 		secondaryStrong: hsl(secondaryHue, secondarySat, Math.max(secondaryLightness - 10, 42)),
 		muted: hsl(darkHue, Math.max(darkSat - 8, 12), Math.min(darkLightness + 34, 60)),
 		spiro: hsl(spiroHue, spiroSat, spiroLightness),
-		darkRgb: '42, 31, 22'
+		darkRgb: darkRgbChannels
 	};
-}
-
-function hslToRgbChannels(hslString) {
-	const match = hslString.match(/hsl\((\d+)\s+(\d+)%\s+(\d+)%\)/);
-	if (!match) return '42, 31, 22';
-
-	const h = Number(match[1]) / 360;
-	const s = Number(match[2]) / 100;
-	const l = Number(match[3]) / 100;
-
-	if (s === 0) {
-		const gray = Math.round(l * 255);
-		return `${gray}, ${gray}, ${gray}`;
-	}
-
-	const hueToRgb = (p, q, t) => {
-		let temp = t;
-		if (temp < 0) temp += 1;
-		if (temp > 1) temp -= 1;
-		if (temp < 1 / 6) return p + (q - p) * 6 * temp;
-		if (temp < 1 / 2) return q;
-		if (temp < 2 / 3) return p + (q - p) * (2 / 3 - temp) * 6;
-		return p;
-	};
-
-	const q = l < 0.5 ? l * (1 + s) : l + s - l * s;
-	const p = 2 * l - q;
-	const r = Math.round(hueToRgb(p, q, h + 1 / 3) * 255);
-	const g = Math.round(hueToRgb(p, q, h) * 255);
-	const b = Math.round(hueToRgb(p, q, h - 1 / 3) * 255);
-
-	return `${r}, ${g}, ${b}`;
 }
 
 function applyPalette() {
 	const palette = paletteFromWheel();
-	palette.darkRgb = hslToRgbChannels(palette.dark);
 
 	const rootStyle = document.documentElement.style;
 	rootStyle.setProperty('--light', palette.light);
@@ -122,23 +171,7 @@ const options = [
 ]
 
 // start drawing
-draw(Math.floor(Math.random() * options.length), context)
-
-// draw a spirograph from options
-function draw(key, context, random = false) {
-	const params = random ? getRandomParams() : options[key]
-	// console.log(params)
-	spirograph(params, 0.1, 0.1, context)
-}
-
-// generate random spirograph params
-function getRandomParams() {
-	const a = Math.floor(Math.random() * Math.floor(200))
-	const b = Math.floor(Math.random() * Math.floor(140))
-	const c1 = Math.floor(Math.random() * Math.floor(200))
-	const c2 = c1 // keep these the same to preserve circular spirograph
-	return { a, b, c1, c2 }
-}
+spirograph(options[Math.floor(Math.random() * options.length)], 0.1, 0.1, context)
 
 // draw animated spirograph
 function spirograph(params, tRatio, resolution, context) {
@@ -180,24 +213,3 @@ function spirograph(params, tRatio, resolution, context) {
 	step()
 
 }
-
-// Draw static spirograph (no animation)
-// function spirographStatic(a, b, c1, c2, tRatio, resolution, context) {
-
-// 	var cx = canvas.width / 2;
-// 	var cy = canvas.height / 2;
-// 	context.clearRect(0, 0, canvas.width, canvas.height);
-// 	context.moveTo(cx, cy);
-// 	context.beginPath();
-
-// 	for (var i = 1; i < 100; i++) {
-
-// 		let t = tRatio * i;
-// 		let x = cx + ((a + b) * Math.cos(t) - (b + c1) * Math.cos(((a + b) / b) * t));
-// 		let y = cy - ((a + b) * Math.sin(t) - (b + c2) * Math.sin(((a + b) / b) * t));
-
-// 		context.lineTo(x, y);
-// 		context.strokeStyle = "#000";
-// 		context.stroke();
-// 	}
-// }

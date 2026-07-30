@@ -1,7 +1,7 @@
 @use 'sass:color';
 
 // dependencies
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Special+Elite&display=swap');
 
 @font-face {
 	font-family: 'Saira';
@@ -31,16 +31,15 @@ $secondary: #fdba74;
 
 $font-regular: 400;
 $font-semibold: 600;
-$font-extrabold: 800;
 
 // utilities
 .font-heading {
-	font-family: 'Saira', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+	font-family: 'Special Elite', 'Saira', 'Courier New', Courier, monospace;
 	font-weight: $font-regular;
 	transition: font-weight .45s ease-out;
 }
 
 .font-body {
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+	font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 	font-weight: $font-regular;
 }
